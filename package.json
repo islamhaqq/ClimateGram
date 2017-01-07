@@ -5,6 +5,7 @@
     "start": "meteor run"
   },
   "dependencies": {
+<<<<<<< HEAD
     "babel-runtime": "^6.18.0",
     "react": "^15.3.1",
     "react-addons-css-transition-group": "^15.3.1",
@@ -12,6 +13,9 @@
     "react-dom": "^15.3.1",
     "react-router": "^2.8.1",
     "faker": "^3.1.0"
+=======
+    "babel-runtime": "^6.18.0"
+>>>>>>> parent of 20b36cd... install React dependencies
   },
   "devDependencies": {
     "meteor-node-stubs": "~0.2.3"
