@@ -2,6 +2,23 @@
 
 SocialHacks Hackathon: Social Hacks is a 24-hour, student-run hackathon that brings together students, programmers, technologists, and activists in New York City to collaborate on technological solutions to the toughest challenges that humanity faces today—poverty, climate change, global health, cybersecurity, and more!
 
+### Running the app
+
+**Note:** Make sure to have *NodeJS*, *MeteorJS*, and *Git* installed globally first
+
+```bash
+git clone https://github.com/SyedAman/SocialHacks.git
+cd SocialHacks
+meteor npm install
+meteor
+```
+
+Then go to `localhost:3000` to see the app running
+
+### Team Members
+
+* Syed Aman
+
 ### Global Dependencies
 
 * NodeJS
@@ -13,17 +30,15 @@ SocialHacks Hackathon: Social Hacks is a 24-hour, student-run hackathon that bri
 * MeteorJS
   * Opinionated framework for quick MVP production
 
-### Running the app
-
-**Note:** Make sure to have NodeJS, MeteorJS, and Git installed globally
+#### Installing MeteorJS
 
 ```bash
-meteor npm install
-meteor
+curl https://install.meteor.com | /bin/sh
 ```
-### Team Members
 
-* Syed Aman
+#### Installing NodeJS & NPM
+
+go to `https://nodejs.org` and hit **install**
 
 ### Front End Technologies Used
 
