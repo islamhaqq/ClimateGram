@@ -10,7 +10,8 @@
     "react-addons-css-transition-group": "^15.3.1",
     "react-addons-pure-render-mixin": "^15.3.1",
     "react-dom": "^15.3.1",
-    "react-router": "^2.8.1"
+    "react-router": "^2.8.1",
+    "faker": "^3.1.0"
   },
   "devDependencies": {
     "meteor-node-stubs": "~0.2.3"
