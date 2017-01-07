@@ -32,11 +32,16 @@ Then go to `localhost:3000` to see the app running
 
 #### Installing MeteorJS
 
+Meteor lets us make Single Paged Apps really fast. Great for hackathons!
+
 ```bash
 curl https://install.meteor.com | /bin/sh
 ```
 
 #### Installing NodeJS & NPM
+
+We need NodeJS for server-side interaction.
+We need NPM to manage and install dependencies/libraries/packages like React
 
 go to `https://nodejs.org` and hit **install**
 
@@ -59,3 +64,9 @@ go to `https://nodejs.org` and hit **install**
 * RESTful API
   * HTTP GET POST requests
   * Postman
+
+### Learning && Resources
+
+#### How to use MeteorJS
+
+#### How to use ReactJS
