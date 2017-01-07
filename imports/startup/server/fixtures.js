@@ -1,67 +1,34 @@
-import { Meteor } from 'meteor/meteor';
-import { Lists } from '../../api/lists/lists.js';
-import { Todos } from '../../api/todos/todos.js';
+// Fill the DB with example data on startup
 
-// if the database is empty on server start, create some sample data.
+import { Meteor } from 'meteor/meteor';
+import { Links } from '../../api/links/links.js';
+
 Meteor.startup(() => {
-  if (Lists.find().count() === 0) {
+  // if the Links collection is empty
+  if (Links.find().count() === 0) {
     const data = [
       {
-        name: 'Meteor Principles',
-        items: [
-          'Data on the Wire',
-          'One Language',
-          'Database Everywhere',
-          'Latency Compensation',
-          'Full Stack Reactivity',
-          'Embrace the Ecosystem',
-          'Simplicity Equals Productivity',
-        ],
+        title: 'Do the Tutorial',
+        url: 'https://www.meteor.com/try',
+        createdAt: new Date(),
       },
       {
-        name: 'Languages',
-        items: [
-          'Lisp',
-          'C',
-          'C++',
-          'Python',
-          'Ruby',
-          'JavaScript',
-          'Scala',
-          'Erlang',
-          '6502 Assembly',
-        ],
+        title: 'Follow the Guide',
+        url: 'http://guide.meteor.com',
+        createdAt: new Date(),
       },
       {
-        name: 'Favorite Scientists',
-        items: [
-          'Ada Lovelace',
-          'Grace Hopper',
-          'Marie Curie',
-          'Carl Friedrich Gauss',
-          'Nikola Tesla',
-          'Claude Shannon',
-        ],
+        title: 'Read the Docs',
+        url: 'https://docs.meteor.com',
+        createdAt: new Date(),
+      },
+      {
+        title: 'Discussions',
+        url: 'https://forums.meteor.com',
+        createdAt: new Date(),
       },
     ];
 
-    let timestamp = (new Date()).getTime();
-
-    data.forEach((list) => {
-      const listId = Lists.insert({
-        name: list.name,
-        incompleteCount: list.items.length,
-      });
-
-      list.items.forEach((text) => {
-        Todos.insert({
-          listId,
-          text,
-          createdAt: new Date(timestamp),
-        });
-
-        timestamp += 1; // ensure unique timestamp.
-      });
-    });
+    data.forEach(link => Links.insert(link));
   }
 });
