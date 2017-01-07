@@ -1,13 +1,13 @@
 /* eslint-env mocha */
-/* eslint-disable func-names, prefer-arrow-callback */
 
-import { Factory } from 'meteor/dburles:factory';
-import { PublicationCollector } from 'meteor/johanbrook:publication-collector';
+import { Factory } from 'meteor/factory';
+import { PublicationCollector } from 'meteor/publication-collector';
 import { chai, assert } from 'meteor/practicalmeteor:chai';
 import { Random } from 'meteor/random';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { DDP } from 'meteor/ddp-client';
+
 import { Lists } from './lists.js';
 import { insert, makePublic, makePrivate, updateName, remove } from './methods.js';
 import { Todos } from '../todos/todos.js';
@@ -17,16 +17,16 @@ if (Meteor.isServer) {
   // eslint-disable-next-line import/no-unresolved
   import './server/publications.js';
 
-  describe('lists', function () {
-    describe('mutators', function () {
-      it('builds correctly from factory', function () {
+  describe('lists', () => {
+    describe('mutators', () => {
+      it('builds correctly from factory', () => {
         const list = Factory.create('list');
         assert.typeOf(list, 'object');
         assert.match(list.name, /List /);
       });
     });
 
-    describe('publications', function () {
+    describe('publications', () => {
       const userId = Random.id();
 
       // TODO -- make a `listWithTodos` factory
@@ -37,7 +37,7 @@ if (Meteor.isServer) {
         });
       };
 
-      before(function () {
+      before(() => {
         Lists.remove({});
         _.times(3, () => createList());
         _.times(2, () => createList({ userId }));
@@ -45,8 +45,8 @@ if (Meteor.isServer) {
       });
 
 
-      describe('lists.public', function () {
-        it('sends all public lists', function (done) {
+      describe('lists.public', () => {
+        it('sends all public lists', (done) => {
           const collector = new PublicationCollector();
           collector.collect('lists.public', (collections) => {
             chai.assert.equal(collections.Lists.length, 3);
@@ -55,8 +55,8 @@ if (Meteor.isServer) {
         });
       });
 
-      describe('lists.private', function () {
-        it('sends all owned lists', function (done) {
+      describe('lists.private', () => {
+        it('sends all owned lists', (done) => {
           const collector = new PublicationCollector({ userId });
           collector.collect('lists.private', (collections) => {
             chai.assert.equal(collections.Lists.length, 2);
@@ -66,13 +66,13 @@ if (Meteor.isServer) {
       });
     });
 
-    describe('methods', function () {
+    describe('methods', () => {
       let listId;
       let todoId;
       let otherListId;
       let userId;
 
-      beforeEach(function () {
+      beforeEach(() => {
         // Clear
         Lists.remove({});
         Todos.remove({});
@@ -88,7 +88,7 @@ if (Meteor.isServer) {
         userId = Random.id();
       });
 
-      describe('makePrivate / makePublic', function () {
+      describe('makePrivate / makePublic', () => {
         function assertListAndTodoArePrivate() {
           assert.equal(Lists.findOne(listId).userId, userId);
           assert.isTrue(Lists.findOne(listId).isPrivate());
@@ -96,7 +96,7 @@ if (Meteor.isServer) {
           assert.isFalse(Todos.findOne(todoId).editableBy(Random.id()));
         }
 
-        it('makes a list private and updates the todos', function () {
+        it('makes a list private and updates the todos', () => {
           // Check initial state is public
           assert.isFalse(Lists.findOne(listId).isPrivate());
 
@@ -114,7 +114,7 @@ if (Meteor.isServer) {
           assert.isTrue(Todos.findOne(todoId).editableBy(userId));
         });
 
-        it('only works if you are logged in', function () {
+        it('only works if you are logged in', () => {
           // Set up method arguments and context
           const methodInvocation = { };
           const args = { listId };
@@ -128,7 +128,7 @@ if (Meteor.isServer) {
           }, Meteor.Error, /lists.makePublic.notLoggedIn/);
         });
 
-        it('only works if it\'s not the last public list', function () {
+        it('only works if it\'s not the last public list', () => {
           // Remove other list, now we're the last public list
           Lists.remove(otherListId);
 
@@ -141,7 +141,7 @@ if (Meteor.isServer) {
           }, Meteor.Error, /lists.makePrivate.lastPublicList/);
         });
 
-        it('only makes the list public if you made it private', function () {
+        it('only makes the list public if you made it private', () => {
           // Set up method arguments and context
           const methodInvocation = { userId };
           const args = { listId };
@@ -161,7 +161,7 @@ if (Meteor.isServer) {
       });
 
       describe('updateName', () => {
-        it('changes the name, but not if you don\'t have permission', function () {
+        it('changes the name, but not if you don\'t have permission', () => {
           updateName._execute({}, {
             listId,
             newName: 'new name',
@@ -200,8 +200,8 @@ if (Meteor.isServer) {
         });
       });
 
-      describe('remove', function () {
-        it('does not delete the last public list', function () {
+      describe('remove', () => {
+        it('does not delete the last public list', () => {
           const methodInvocation = { userId };
 
           // Works fine
@@ -213,7 +213,7 @@ if (Meteor.isServer) {
           }, Meteor.Error, /lists.remove.lastPublicList/);
         });
 
-        it('does not delete a private list you don\'t own', function () {
+        it('does not delete a private list you don\'t own', () => {
           // Make the list private
           makePrivate._execute({ userId }, { listId });
 
@@ -228,16 +228,16 @@ if (Meteor.isServer) {
         });
       });
 
-      describe('rate limiting', function () {
-        it('does not allow more than 5 operations rapidly', function () {
+      describe('rate limiting', () => {
+        it('does not allow more than 5 operations rapidly', () => {
           const connection = DDP.connect(Meteor.absoluteUrl());
 
           _.times(5, () => {
-            connection.call(insert.name, { language: 'en' });
+            connection.call(insert.name, { locale: 'en' });
           });
 
           assert.throws(() => {
-            connection.call(insert.name, { language: 'en' });
+            connection.call(insert.name, {});
           }, Meteor.Error, /too-many-requests/);
 
           connection.disconnect();

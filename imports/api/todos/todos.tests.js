@@ -1,9 +1,8 @@
 /* eslint-env mocha */
-/* eslint-disable func-names, prefer-arrow-callback */
 
 import { Meteor } from 'meteor/meteor';
-import { Factory } from 'meteor/dburles:factory';
-import { PublicationCollector } from 'meteor/johanbrook:publication-collector';
+import { Factory } from 'meteor/factory';
+import { PublicationCollector } from 'meteor/publication-collector';
 import { chai, assert } from 'meteor/practicalmeteor:chai';
 import { Random } from 'meteor/random';
 import { _ } from 'meteor/underscore';
@@ -14,16 +13,16 @@ if (Meteor.isServer) {
   // eslint-disable-next-line import/no-unresolved
   import './server/publications.js';
 
-  describe('todos', function () {
-    describe('mutators', function () {
-      it('builds correctly from factory', function () {
+  describe('todos', () => {
+    describe('mutators', () => {
+      it('builds correctly from factory', () => {
         const todo = Factory.create('todo');
         assert.typeOf(todo, 'object');
         assert.typeOf(todo.createdAt, 'date');
       });
     });
 
-    it('leaves createdAt on update', function () {
+    it('leaves createdAt on update', () => {
       const createdAt = new Date(new Date() - 1000);
       let todo = Factory.create('todo', { createdAt });
 
@@ -35,12 +34,12 @@ if (Meteor.isServer) {
       assert.equal(todo.createdAt.getTime(), createdAt.getTime());
     });
 
-    describe('publications', function () {
+    describe('publications', () => {
       let publicList;
       let privateList;
       let userId;
 
-      before(function () {
+      before(() => {
         userId = Random.id();
         publicList = Factory.create('list');
         privateList = Factory.create('list', { userId });
@@ -52,8 +51,8 @@ if (Meteor.isServer) {
         });
       });
 
-      describe('todos.inList', function () {
-        it('sends all todos for a public list', function (done) {
+      describe('todos.inList', () => {
+        it('sends all todos for a public list', (done) => {
           const collector = new PublicationCollector();
           collector.collect(
             'todos.inList',
@@ -65,7 +64,7 @@ if (Meteor.isServer) {
           );
         });
 
-        it('sends all todos for a public list when logged in', function (done) {
+        it('sends all todos for a public list when logged in', (done) => {
           const collector = new PublicationCollector({ userId });
           collector.collect(
             'todos.inList',
@@ -77,7 +76,7 @@ if (Meteor.isServer) {
           );
         });
 
-        it('sends all todos for a private list when logged in as owner', function (done) {
+        it('sends all todos for a private list when logged in as owner', (done) => {
           const collector = new PublicationCollector({ userId });
           collector.collect(
             'todos.inList',
@@ -89,7 +88,7 @@ if (Meteor.isServer) {
           );
         });
 
-        it('sends no todos for a private list when not logged in', function (done) {
+        it('sends no todos for a private list when not logged in', (done) => {
           const collector = new PublicationCollector();
           collector.collect(
             'todos.inList',
@@ -101,7 +100,7 @@ if (Meteor.isServer) {
           );
         });
 
-        it('sends no todos for a private list when logged in as another user', function (done) {
+        it('sends no todos for a private list when logged in as another user', (done) => {
           const collector = new PublicationCollector({ userId: Random.id() });
           collector.collect(
             'todos.inList',

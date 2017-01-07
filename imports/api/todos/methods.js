@@ -9,12 +9,15 @@ import { Lists } from '../lists/lists.js';
 
 export const insert = new ValidatedMethod({
   name: 'todos.insert',
-  validate: Todos.simpleSchema().pick(['listId', 'text']).validator({ clean: true, filter: false }),
+  validate: new SimpleSchema({
+    listId: { type: String },
+    text: { type: String },
+  }).validator(),
   run({ listId, text }) {
     const list = Lists.findOne(listId);
 
     if (list.isPrivate() && list.userId !== this.userId) {
-      throw new Meteor.Error('todos.insert.accessDenied',
+      throw new Meteor.Error('api.todos.insert.accessDenied',
         'Cannot add todos to a private list that is not yours');
     }
 
@@ -32,9 +35,9 @@ export const insert = new ValidatedMethod({
 export const setCheckedStatus = new ValidatedMethod({
   name: 'todos.makeChecked',
   validate: new SimpleSchema({
-    todoId: Todos.simpleSchema().schema('_id'),
-    newCheckedStatus: Todos.simpleSchema().schema('checked'),
-  }).validator({ clean: true, filter: false }),
+    todoId: { type: String },
+    newCheckedStatus: { type: Boolean },
+  }).validator(),
   run({ todoId, newCheckedStatus }) {
     const todo = Todos.findOne(todoId);
 
@@ -44,7 +47,7 @@ export const setCheckedStatus = new ValidatedMethod({
     }
 
     if (!todo.editableBy(this.userId)) {
-      throw new Meteor.Error('todos.setCheckedStatus.accessDenied',
+      throw new Meteor.Error('api.todos.setCheckedStatus.accessDenied',
         'Cannot edit checked status in a private list that is not yours');
     }
 
@@ -57,23 +60,21 @@ export const setCheckedStatus = new ValidatedMethod({
 export const updateText = new ValidatedMethod({
   name: 'todos.updateText',
   validate: new SimpleSchema({
-    todoId: Todos.simpleSchema().schema('_id'),
-    newText: Todos.simpleSchema().schema('text'),
-  }).validator({ clean: true, filter: false }),
+    todoId: { type: String },
+    newText: { type: String },
+  }).validator(),
   run({ todoId, newText }) {
     // This is complex auth stuff - perhaps denormalizing a userId onto todos
     // would be correct here?
     const todo = Todos.findOne(todoId);
 
     if (!todo.editableBy(this.userId)) {
-      throw new Meteor.Error('todos.updateText.accessDenied',
+      throw new Meteor.Error('api.todos.updateText.accessDenied',
         'Cannot edit todos in a private list that is not yours');
     }
 
     Todos.update(todoId, {
-      $set: {
-        text: (_.isUndefined(newText) ? null : newText),
-      },
+      $set: { text: newText },
     });
   },
 });
@@ -81,13 +82,13 @@ export const updateText = new ValidatedMethod({
 export const remove = new ValidatedMethod({
   name: 'todos.remove',
   validate: new SimpleSchema({
-    todoId: Todos.simpleSchema().schema('_id'),
-  }).validator({ clean: true, filter: false }),
+    todoId: { type: String },
+  }).validator(),
   run({ todoId }) {
     const todo = Todos.findOne(todoId);
 
     if (!todo.editableBy(this.userId)) {
-      throw new Meteor.Error('todos.remove.accessDenied',
+      throw new Meteor.Error('api.todos.remove.accessDenied',
         'Cannot remove todos in a private list that is not yours');
     }
 
