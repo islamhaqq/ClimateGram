@@ -10,4 +10,4 @@ import { Router, Route, browserHistory } from 'react-router';
 // import '../../ui/pages/not-found/not-found.js';
 
 // Set up all routes in the app
-export const renderRoutes = () => ()
+export const renderRoutes = () => ();
