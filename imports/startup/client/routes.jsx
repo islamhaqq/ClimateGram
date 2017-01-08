@@ -5,6 +5,7 @@ import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
 
 import MainLayout from '../../ui/layouts/MainLayout.jsx';
+import GridListExampleSimple from '../../ui/component/GridListExampleSimple.jsx';
 
 // Import needed templates
 // import '../../ui/layouts/body/body.js';
@@ -13,5 +14,9 @@ import MainLayout from '../../ui/layouts/MainLayout.jsx';
 
 // Set up all routes in the app
 export const renderRoutes = () => (
-<Router history={browserHistory} routes={MainLayout} />
+<Router history={browserHistory}>
+  <Route path="/" components={MainLayout}>
+    <Route path="main" components={GridListExampleSimple} />
+  </Route>
+</Router>
 );
