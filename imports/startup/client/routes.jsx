@@ -4,6 +4,8 @@ import { ReactDOM } from 'react-dom';
 
 // import components
 // import PageNotFound from '../../ui/pages/not-found/PageNotFound.jsx';
+import MainLayout from '../../ui/layouts/MainLayout.jsx';
+import GridListExampleSimple from '../../ui/component/GridListExampleSimple.jsx';
 
 class PageNotFound extends React.Component {
   ReactDOM.render() {
@@ -19,8 +21,9 @@ export default PageNotFound
 // Set up all routes in the app
 export const renderRoutes = () => (
   <Router history={browserHistory}>
-    <Route>
+    <Route path="/" components={MainLayout}>
       <Route path="*" component={PageNotFound}/>
+      <Route path="main" components={GridListExampleSimple} />
     </Route>
   </Router>
 );
