@@ -13,8 +13,5 @@ import MainLayout from '../../ui/layouts/MainLayout.jsx';
 
 // Set up all routes in the app
 export const renderRoutes = () => (
-  <Router history={browserHistory}>
-    <Route path="/" component={MainLayout}>
-    </Route>
-  </Router>
+<Router history={browserHistory} routes={MainLayout} />
 );
