@@ -1,20 +1,26 @@
-// import { FlowRouter } from 'meteor/kadira:flow-router';
-// import { BlazeLayout } from 'meteor/kadira:blaze-layout';
-
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
+import { ReactDOM } from 'react-dom';
 
-import MainLayout from '../../ui/layouts/MainLayout.jsx';
+// import components
+// import PageNotFound from '../../ui/pages/not-found/PageNotFound.jsx';
 
-// Import needed templates
-// import '../../ui/layouts/body/body.js';
-// import '../../ui/pages/home/home.js';
-// import '../../ui/pages/not-found/not-found.js';
+class PageNotFound extends React.Component {
+  ReactDOM.render() {
+    return(
+      <div>
+        <h1>404: Page Not Found</h1>
+      </div>
+    )
+  }
+}
+export default PageNotFound
 
 // Set up all routes in the app
 export const renderRoutes = () => (
   <Router history={browserHistory}>
-    <Route path="/" component={MainLayout}>
+    <Route>
+      <Route path="*" component={PageNotFound}/>
     </Route>
   </Router>
 );
