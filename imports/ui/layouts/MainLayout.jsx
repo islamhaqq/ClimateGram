@@ -8,6 +8,8 @@ import AppBar from 'material-ui/AppBar';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
+import GridListExampleComplex from '../../ui/components/GridListExampleComplex.jsx';
+
 const lightMuiTheme = getMuiTheme(lightBaseTheme);
 
 const MainLayout = ({content}) => (
@@ -18,6 +20,7 @@ const MainLayout = ({content}) => (
           title="Title"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
         />
+        <GridListExampleComplex/>
         <main>
           {content}
         </main>
