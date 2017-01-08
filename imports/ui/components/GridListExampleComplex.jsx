@@ -40,15 +40,42 @@ const tilesData = [
     featured: 'true',
   },
   {
-    img: 'http://www.americanadoptions.com/shop_image/family/54283/61bff86919b597f4886d61dc2fb32700_lg.JPG',
-    title: 'Picture of me and my wife at the great pyramids',
-    author: 'SomeDudeandWife2',
+    img: 'http://yallabook.com/guide/uploade/files/151201_1190_a1a60.jpg',
+    title: 'The Yellow River of China, after years of neglience',
+    author: 'fdsa21',
+  },
+  {
+    img: 'http://www.lsus.edu/Images/Offices%20and%20Services/Community%20Outreach/RRWMI/skypixel%20flood%20south%20from%20dock%20June%204.jpg',
+    title: 'The cars on the highway don\'t know what they\'re missing',
+    author: 'massdrop23',
+  },
+  {
+    img: 'https://media-cdn.tripadvisor.com/media/photo-s/03/9b/2d/f2/new-york-city.jpg',
+    title: 'New York Skyline is so NICE!!',
+    author: 'Adrew',
+  },
+  {
+    img: 'http://www.sftravel.com/sites/sftraveldev.prod.acquia-sites.com/files/SanFrancisco_0.jpg',
+    title: 'My future dream city to live in',
+    author: 'some dude on the internet',
   },
   {
     img: 'http://www.wherecoolthingshappen.com/wp-content/uploads/2014/03/zoomed-out-landmarks-3-2.jpg',
     title: 'Look at what happened to the Taj Mahal',
     author: 'some dude on the internet',
-  }
+    featured: 'true',
+  },
+  {
+    img: 'http://www.motherjones.com/files/imagecache/top-of-content-image/ap_16268837219115.jpg',
+    title: 'THIS guy won\'t believe the EVIDENCE!',
+    author: 'TRUMPHATER21',
+  },
+  {
+    img: 'http://heightstechnology.edublogs.org/files/2011/05/Temperate-Forest-Food-Chain-2a4qqyj.jpg',
+    title: 'Food chain BROKEN',
+    author: 'environmentlover21',
+  },
+
 ];
 
 /**
