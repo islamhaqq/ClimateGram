@@ -21,16 +21,21 @@ const tilesData = [
     img: 'https://upload.wikimedia.org/wikipedia/commons/2/28/Landfill.jpg',
     title: 'What happens when you don\'t take care of the Earth',
     author: 'jill111',
-    featured: true,
+  },
+  {
+    img: 'https://cdn.pixabay.com/photo/2015/06/03/14/24/ladybug-796481_960_720.jpg',
+    title: 'If Trump wins the election, this ladybug won\'t survive in 2037',
+    author: 'fancycravel',
   },
   {
     img: 'http://www.wherecoolthingshappen.com/wp-content/uploads/2014/03/zoomed-out-landmarks-3-2.jpg',
     title: 'Different View of Taj Mahal',
     author: 'pashminu',
+    featured: 'true',
   },
   {
-    img: 'http://images.all-free-download.com/footage_preview/webm/tree_268.webm',
-    title: 'Some refreshing nature videos',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Hopetoun_falls.jpg',
+    title: 'Cool picture of waterfall I took',
     author: 'Danson67',
   },
   {
@@ -39,24 +44,10 @@ const tilesData = [
     author: 'fancycrave1',
   },
   {
-    img: '../../../public/img/',
-    title: 'Hats',
+    img: 'http://www.drodd.com/images15/nature21.jpg',
+    title: 'What heaven looks like',
     author: 'Hans',
-  },
-  {
-    img: '../../../public/img/',
-    title: 'Honey',
-    author: 'fancycravel',
-  },
-  {
-    img: '../../../public/img/',
-    title: 'Vegetables',
-    author: 'jill111',
-  },
-  {
-    img: '../../../public/img/',
-    title: 'Water plant',
-    author: 'BkrmadtyaKarki',
+    featured: 'true',
   },
 ];
 
@@ -67,7 +58,7 @@ const tilesData = [
 const GridListExampleComplex = () => (
   <div style={styles.root}>
     <GridList
-      cols={5}
+      cols={2}
       cellHeight={400}
       padding={1}
       style={styles.gridList}
