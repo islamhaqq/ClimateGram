@@ -17,7 +17,7 @@ const MainLayout = ({content}) => (
     <MuiThemeProvider muiTheme={lightMuiTheme}>
       <div>
         <AppBar
-          title="Title"
+          title="ClimateGram"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
         />
         <GridListExampleComplex/>
