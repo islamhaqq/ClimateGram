@@ -19,3 +19,4 @@ ecmascript@0.6.1              # Enable ECMAScript2015+ syntax in app code
 practicalmeteor:mocha             # A package for writing and running your meteor app and package tests with mocha
 johanbrook:publication-collector  # Test a Meteor publication by collecting its output
 fourseven:scss                    # Style with attiude
+static-html
