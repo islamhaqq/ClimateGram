@@ -1,7 +1,7 @@
 // import { FlowRouter } from 'meteor/kadira:flow-router';
 // import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
-import { React } from 'react';
+import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
 
 import MainLayout from '../../ui/layouts/MainLayout.jsx';
