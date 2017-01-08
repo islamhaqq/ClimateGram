@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 // import components
 import PageNotFound from '../../ui/pages/not-found/PageNotFound.jsx';
 import MainLayout from '../../ui/layouts/MainLayout.jsx';
-import GridListExampleSimple from '../../ui/component/GridListExampleSimple.jsx';
+import GridListExampleSimple from '../../ui/components/GridListExampleSimple.jsx';
 
 // Set up all routes in the app
 export const renderRoutes = () => (
