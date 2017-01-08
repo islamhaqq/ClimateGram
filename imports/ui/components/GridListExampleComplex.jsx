@@ -11,26 +11,16 @@ const styles = {
   },
   gridList: {
     width: 1920,
-    height: 650,
+    height: 675,
     overflowY: 'auto',
   },
 };
 
 const tilesData = [
   {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/28/Landfill.jpg',
-    title: 'What happens when you don\'t take care of the Earth',
-    author: 'jill111',
-  },
-  {
     img: 'https://cdn.pixabay.com/photo/2015/06/03/14/24/ladybug-796481_960_720.jpg',
     title: 'If Trump wins the election, this ladybug won\'t survive in 2037',
     author: 'fancycravel',
-  },
-  {
-    img: 'http://www.wherecoolthingshappen.com/wp-content/uploads/2014/03/zoomed-out-landmarks-3-2.jpg',
-    title: 'Different View of Taj Mahal',
-    author: 'pashminu',
     featured: 'true',
   },
   {
@@ -39,16 +29,26 @@ const tilesData = [
     author: 'Danson67',
   },
   {
-    img: 'http://www.americanadoptions.com/shop_image/family/54283/61bff86919b597f4886d61dc2fb32700_lg.JPG',
-    title: 'Me and my wife posing in front of pyramid',
-    author: 'fancycrave1',
-  },
-  {
     img: 'http://www.drodd.com/images15/nature21.jpg',
     title: 'What heaven looks like',
     author: 'Hans',
+  },
+  {
+    img: 'http://wallpapercave.com/wp/kSQdCxM.jpg',
+    title: 'Cool space background',
+    author: 'David',
     featured: 'true',
   },
+  {
+    img: 'http://www.americanadoptions.com/shop_image/family/54283/61bff86919b597f4886d61dc2fb32700_lg.JPG',
+    title: 'Picture of me and my wife at the great pyramids',
+    author: 'SomeDudeandWife2',
+  },
+  {
+    img: 'http://www.wherecoolthingshappen.com/wp-content/uploads/2014/03/zoomed-out-landmarks-3-2.jpg',
+    title: 'Look at what happened to the Taj Mahal',
+    author: 'some dude on the internet',
+  }
 ];
 
 /**

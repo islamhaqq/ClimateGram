@@ -9,7 +9,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 import GridListExampleComplex from '../../ui/components/GridListExampleComplex.jsx';
-import TextFieldExampleError from '../../ui/components/TextFieldExampleError.jsx';
 
 const lightMuiTheme = getMuiTheme(lightBaseTheme);
 
@@ -21,8 +20,7 @@ const MainLayout = ({content}) => (
           title="ClimateGram"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
         />
-        <GridListExampleComplex/>
-        <TextFieldExampleError/>
+        <GridListExampleComplex />
         <main>
           {content}
         </main>
