@@ -10,52 +10,51 @@ const styles = {
     justifyContent: 'space-around',
   },
   gridList: {
-    width: 500,
-    height: 450,
+    width: 1920,
+    height: 650,
     overflowY: 'auto',
   },
 };
 
 const tilesData = [
   {
-    img: 'images/grid-list/00-52-29-429_640.jpg',
-    title: 'Breakfast',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/2/28/Landfill.jpg',
+    title: 'What happens when you don\'t take care of the Earth',
     author: 'jill111',
     featured: true,
   },
   {
-    img: 'images/grid-list/burger-827309_640.jpg',
-    title: 'Tasty burger',
+    img: 'http://www.wherecoolthingshappen.com/wp-content/uploads/2014/03/zoomed-out-landmarks-3-2.jpg',
+    title: 'Different View of Taj Mahal',
     author: 'pashminu',
   },
   {
-    img: 'images/grid-list/camera-813814_640.jpg',
-    title: 'Camera',
+    img: 'http://images.all-free-download.com/footage_preview/webm/tree_268.webm',
+    title: 'Some refreshing nature videos',
     author: 'Danson67',
   },
   {
-    img: 'images/grid-list/morning-819362_640.jpg',
-    title: 'Morning',
+    img: 'http://www.americanadoptions.com/shop_image/family/54283/61bff86919b597f4886d61dc2fb32700_lg.JPG',
+    title: 'Me and my wife posing in front of pyramid',
     author: 'fancycrave1',
-    featured: true,
   },
   {
-    img: 'images/grid-list/hats-829509_640.jpg',
+    img: '../../../public/img/',
     title: 'Hats',
     author: 'Hans',
   },
   {
-    img: 'images/grid-list/honey-823614_640.jpg',
+    img: '../../../public/img/',
     title: 'Honey',
     author: 'fancycravel',
   },
   {
-    img: 'images/grid-list/vegetables-790022_640.jpg',
+    img: '../../../public/img/',
     title: 'Vegetables',
     author: 'jill111',
   },
   {
-    img: 'images/grid-list/water-plant-821293_640.jpg',
+    img: '../../../public/img/',
     title: 'Water plant',
     author: 'BkrmadtyaKarki',
   },
@@ -68,8 +67,8 @@ const tilesData = [
 const GridListExampleComplex = () => (
   <div style={styles.root}>
     <GridList
-      cols={2}
-      cellHeight={200}
+      cols={5}
+      cellHeight={400}
       padding={1}
       style={styles.gridList}
     >
