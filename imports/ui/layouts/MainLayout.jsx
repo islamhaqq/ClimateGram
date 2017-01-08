@@ -6,7 +6,7 @@ import AppBar from 'material-ui/AppBar';
 
 const lightMuiTheme = getMuiTheme(lightBaseTheme);
 
-export const MainLayout = ({content}) => (
+const MainLayout = ({content}) => (
   <div className="main-layout">
     <MuiThemeProvider muiTheme={lightMuiTheme}>
       <div>
@@ -21,3 +21,4 @@ export const MainLayout = ({content}) => (
     </MuiThemeProvider>
   </div>
 )
+export default MainLayout;

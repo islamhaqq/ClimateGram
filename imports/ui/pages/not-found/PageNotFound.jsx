@@ -9,4 +9,4 @@ class PageNotFound extends React.Component {
     )
   }
 }
-export default PageNotFound
+export default PageNotFound;
