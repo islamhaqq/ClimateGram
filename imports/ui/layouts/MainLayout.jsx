@@ -4,6 +4,10 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import AppBar from 'material-ui/AppBar';
 
+// Needed for onTouchTap
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
 const lightMuiTheme = getMuiTheme(lightBaseTheme);
 
 const MainLayout = ({content}) => (
