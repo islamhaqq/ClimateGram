@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
-import { ReactDOM } from 'react-dom';
+import { render } from 'react-dom';
 
 // import components
 // import PageNotFound from '../../ui/pages/not-found/PageNotFound.jsx';
@@ -8,7 +8,7 @@ import MainLayout from '../../ui/layouts/MainLayout.jsx';
 import GridListExampleSimple from '../../ui/component/GridListExampleSimple.jsx';
 
 class PageNotFound extends React.Component {
-  ReactDOM.render() {
+  render() {
     return(
       <div>
         <h1>404: Page Not Found</h1>
